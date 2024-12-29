@@ -1,40 +1,24 @@
 import { MigrationInterface, QueryRunner, Table, TableUnique } from 'typeorm';
 
-export class CreateUserAccountTable1735436192108 implements MigrationInterface {
+export class CreatePhilanthropyCategoryTable1735439922497
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'user_accounts',
+        name: 'philanthropy_categories',
         columns: [
           {
-            name: 'user_id',
+            name: 'category_id',
             type: 'int',
             isPrimary: true,
             isGenerated: true,
             generationStrategy: 'increment',
           },
           {
-            name: 'username',
+            name: 'name',
             type: 'varchar',
             length: '32',
-            isNullable: false,
-          },
-          {
-            name: 'email',
-            type: 'varchar',
-            length: '255',
-            isNullable: false,
-          },
-          {
-            name: 'password',
-            type: 'varchar',
-            length: '255',
-            isNullable: false,
-          },
-          {
-            name: 'full_name',
-            type: 'varchar',
-            length: '255',
             isNullable: false,
           },
           {
@@ -50,12 +34,8 @@ export class CreateUserAccountTable1735436192108 implements MigrationInterface {
         ],
         uniques: [
           new TableUnique({
-            name: 'UQ_accounts_username',
-            columnNames: ['username'],
-          }),
-          new TableUnique({
-            name: 'UQ_accounts_email',
-            columnNames: ['email'],
+            name: 'UQ_categories_name',
+            columnNames: ['name'],
           }),
         ],
       }),
@@ -63,6 +43,6 @@ export class CreateUserAccountTable1735436192108 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('user_account');
+    await queryRunner.dropTable('philanthropy_categories');
   }
 }
