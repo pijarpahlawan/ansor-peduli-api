@@ -2,11 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
+  // OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Philanthropy } from './Philanthropy';
+// import { Philanthropy } from './Philanthropy';
 
 @Entity('philanthropy_categories')
 export class PhilanthropyCategory {
@@ -29,6 +29,6 @@ export class PhilanthropyCategory {
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 
-  @OneToMany(() => Philanthropy, (philanthropy) => philanthropy.category)
-  philanthropies: Philanthropy[];
+  // @OneToMany(() => Philanthropy, (philanthropy) => philanthropy.category)
+  // philanthropies: Philanthropy[];
 }

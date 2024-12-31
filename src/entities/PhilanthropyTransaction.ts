@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Philanthropy } from './Philanthropy';
+// import { Philanthropy } from './Philanthropy';
 import { UserAccount } from './UserAccount';
 
 @Entity('philanthropy_transactions')
@@ -34,9 +34,9 @@ export class PhilanthropyTransaction {
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 
-  @ManyToOne(() => Philanthropy, (philanthropy) => philanthropy.transactions)
-  @JoinColumn({ name: 'philanthropy_id' })
-  philanthropy: Philanthropy;
+  // @ManyToOne(() => Philanthropy, (philanthropy) => philanthropy.transactions)
+  // @JoinColumn({ name: 'philanthropy_id' })
+  // philanthropy: Philanthropy;
 
   @ManyToOne(() => UserAccount, (userAccount) => userAccount.transactions)
   @JoinColumn({ name: 'input_by' })

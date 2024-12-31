@@ -6,10 +6,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Philanthropy } from './Philanthropy';
+// import { Philanthropy } from './Philanthropy';
 import { PhilanthropyTransaction } from './PhilanthropyTransaction';
 
-@Entity('user_account')
+@Entity('user_accounts')
 export class UserAccount {
   @PrimaryGeneratedColumn('increment')
   @Column({ type: 'int', name: 'user_id' })
@@ -39,8 +39,8 @@ export class UserAccount {
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 
-  @OneToMany(() => Philanthropy, (philanthropy) => philanthropy.initiatorUser)
-  philanthropies: Philanthropy[];
+  // @OneToMany(() => Philanthropy, (philanthropy) => philanthropy.initiatorUser)
+  // philanthropies: Philanthropy[];
 
   @OneToMany(
     () => PhilanthropyTransaction,
