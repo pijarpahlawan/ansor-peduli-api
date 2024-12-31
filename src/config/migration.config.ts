@@ -13,10 +13,9 @@ const config: DataSourceOptions = {
   migrations: ['src/migrations/*.ts'],
   entities: [],
   synchronize: false,
+  ssl: true,
 };
 
 const MigrationDataSource = new DataSource(config);
-
-export { config };
 
 export default MigrationDataSource;
