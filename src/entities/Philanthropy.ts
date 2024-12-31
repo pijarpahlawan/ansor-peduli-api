@@ -2,20 +2,21 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
+  PrimaryColumn,
+  // JoinColumn,
+  // ManyToOne,
+  // OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { PhilanthropyCategory } from './PhilanthropyCategory';
-import { UserAccount } from './UserAccount';
-import { PhilanthropyTransaction } from './PhilanthropyTransaction';
+// import { PhilanthropyCategory } from './PhilanthropyCategory';
+// import { UserAccount } from './UserAccount';
+// import { PhilanthropyTransaction } from './PhilanthropyTransaction';
 
 @Entity('philanthropies')
 export class Philanthropy {
   @PrimaryGeneratedColumn('increment')
-  @Column({ type: 'int', name: 'philanthropy_id' })
+  @PrimaryColumn({ type: 'int', name: 'philanthropy_id' })
   philanthropyId: number;
 
   @Column({ type: 'int', nullable: false, name: 'initiator' })
@@ -51,17 +52,17 @@ export class Philanthropy {
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 
-  @ManyToOne(() => PhilanthropyCategory, (category) => category.philanthropies)
-  @JoinColumn({ name: 'category_id' })
-  category: PhilanthropyCategory;
+  // @ManyToOne(() => PhilanthropyCategory, (category) => category.philanthropies)
+  // @JoinColumn({ name: 'category_id' })
+  // category: PhilanthropyCategory;
 
-  @ManyToOne(() => UserAccount, (userAccount) => userAccount.philanthropies)
-  @JoinColumn({ name: 'initiator' })
-  initiatorUser: UserAccount;
+  // @ManyToOne(() => UserAccount, (userAccount) => userAccount.philanthropies)
+  // @JoinColumn({ name: 'initiator' })
+  // initiatorUser: UserAccount;
 
-  @OneToMany(
-    () => PhilanthropyTransaction,
-    (transaction) => transaction.philanthropy,
-  )
-  transactions: PhilanthropyTransaction[];
+  // @OneToMany(
+  //   () => PhilanthropyTransaction,
+  //   (transaction) => transaction.philanthropy,
+  // )
+  // transactions: PhilanthropyTransaction[];
 }

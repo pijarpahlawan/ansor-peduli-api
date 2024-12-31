@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PhilanthropyModule } from './philanthropy/philanthropy.module';
 
 @Module({
   imports: [
@@ -18,10 +19,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: configService.get('DB_NAME'),
         entities: [],
         synchronize: false,
-        autoLoadEntities: false,
+        autoLoadEntities: true,
+        ssl: true,
       }),
       inject: [ConfigService],
     }),
+    PhilanthropyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
