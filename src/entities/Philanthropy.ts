@@ -37,10 +37,16 @@ export class Philanthropy {
   @Column({ type: 'int', nullable: false, name: 'target' })
   target: number;
 
-  @Column({ type: 'int', nullable: false, name: 'current' })
+  @Column({ type: 'int', nullable: false, name: 'current', default: 0 })
   current: number;
 
-  @Column({ type: 'varchar', length: 8, nullable: false, name: 'status' })
+  @Column({
+    type: 'varchar',
+    length: 8,
+    nullable: false,
+    name: 'status',
+    default: 'open',
+  })
   status: string;
 
   @Column({ type: 'date', nullable: false, name: 'deadline' })
