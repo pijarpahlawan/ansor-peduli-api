@@ -1,5 +1,4 @@
-export class SavePhilanthropyDto {
-  philanthropyId: number;
+export class PhilanthropyMetadataDto {
   initiator: number;
   categoryId: number;
   name: string;
