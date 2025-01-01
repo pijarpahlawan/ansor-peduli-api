@@ -42,6 +42,7 @@ async function bootstrap() {
     .setTitle('Ansor Peduli API')
     .setDescription('Aplikasi untuk program kemanusiaan dari GP Ansor')
     .setVersion('1.0')
+    .addServer('http://localhost:' + port)
     .addServer(configService.get('SWAGGER_SERVER'))
     .addBearerAuth(
       {
