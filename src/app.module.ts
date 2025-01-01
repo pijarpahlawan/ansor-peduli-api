@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PhilanthropyModule } from './philanthropy/philanthropy.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { PhilanthropyModule } from './philanthropy/philanthropy.module';
       inject: [ConfigService],
     }),
     PhilanthropyModule,
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
